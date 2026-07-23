@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualisasi Pengeluaran & Anggaran</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Total Balance -->
+        <header>
+            <h1>💰 Pengeluaran Saya</h1>
+            <div class="balance-card">
+                <p class="balance-label">Total Pengeluaran</p>
+                <p class="balance-amount" id="totalBalance">Rp 0</p>
+            </div>
+        </header>
+
+        <!-- Input Form -->
+        <section class="form-section">
+            <h2>Tambah Transaksi</h2>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="itemName">Nama Item</label>
+                    <input type="text" id="itemName" placeholder="Contoh: Makan siang" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Jumlah (Rp)</label>
+                    <input type="number" id="amount" placeholder="Contoh: 50000" min="0" step="1000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Kategori</label>
+                    <select id="category" required>
+                        <option value="">Pilih kategori...</option>
+                        <option value="Food">🍔 Makanan</option>
+                        <option value="Transport">🚗 Transport</option>
+                        <option value="Fun">🎉 Hiburan</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Tambah Transaksi</button>
+            </form>
+        </section>
+
+        <!-- Chart Section -->
+        <section class="chart-section">
+            <h2>Distribusi Pengeluaran</h2>
+            <div class="chart-container">
+                <canvas id="expenseChart"></canvas>
+            </div>
+            <div id="noDataMessage" class="no-data">
+                <p>📊 Belum ada data. Tambahkan transaksi pertama Anda!</p>
+            </div>
+        </section>
+
+        <!-- Transaction List -->
+        <section class="transaction-section">
+            <h2>Riwayat Transaksi</h2>
+            <div class="transaction-list" id="transactionList">
+                <p class="empty-state">Belum ada transaksi. Mulai tambahkan pengeluaran Anda!</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
